@@ -36,11 +36,11 @@ t=time.time()
 
 cause_inds=[0]
 effect_inds=[1]
-eps_inds=range(100)
+eps_inds=[5]
 
 if __name__=='__main__':
     pool=mp.Pool(processes=8)
-    result=pool.starmap(HK_pecora_E7, product(cause_inds,effect_inds,eps_inds))
+    result=pool.starmap(HK_pecora_E7, product(effect_inds,cause_inds,eps_inds))
     pool.close()
     pool.join()
 
@@ -72,4 +72,4 @@ if __name__=='__main__':
 # print(PecoraDiff(x,y,7,0.01))
 
 elapsed=time.time()-t
-# print(elapsed)
+print(elapsed)
