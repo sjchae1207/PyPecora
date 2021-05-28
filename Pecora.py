@@ -16,7 +16,9 @@ def PecoraDiff(x,y,E,epsilon):
     # print(dist_X[0:5,0:5])
     r2_list=np.zeros((L-E+1,1))
     p_list=np.zeros((L-E+1,1))
+    # for dot_i in range(L-E+1):
     for dot_i in range(L-E+1):
+        print(dot_i)
         neighbors_x=np.argsort(dist_X[:,dot_i])
         diff_ratio=100
         num_neighbors=L-E+1
@@ -35,7 +37,7 @@ def PecoraDiff(x,y,E,epsilon):
             A=np.matmul(np.matmul(A,np.transpose(temp_X)),temp_Y) # edit required to be more simpler form
             diff_ratio_list=np.linalg.norm(temp_Y-temp_X.dot(A),axis=1)/np.linalg.norm(temp_X,axis=1)
             diff_ratio = max(diff_ratio_list)
-        print(num_neighbors)
+        # print(num_neighbors)
         if num_neighbors == E:
             r2_list[dot_i]=0
         else:

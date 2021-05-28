@@ -1,5 +1,5 @@
 #!/usr/bin/sh
-#SBATCH -n 8
+#SBATCH -c 12 
 #SBATCH -p HQ2comp
 
 module load python/3.7.2
